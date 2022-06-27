@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../signup.css";
 
@@ -8,6 +9,7 @@ function Signup() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const history = useHistory();
 
   const submitDetails = async (e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ function Signup() {
     });
     const responseData = await response.json();
     console.log(responseData)
+    history.push('/');
   };
   return (
     <div>
